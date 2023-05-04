@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/snapcore/spread/spread"
+	"github.com/IsaacJT/spread/spread"
 
 	. "gopkg.in/check.v1"
 )

@@ -1,4 +1,4 @@
-module github.com/snapcore/spread
+module github.com/IsaacJT/spread
 
 go 1.13
 
