@@ -189,7 +189,6 @@ func qemuCmd(system *System, path string, mem, port int) (*exec.Cmd, error) {
 	netdev := fmt.Sprintf("netdev=user0,driver=%s", system.DeviceBackends["network"])
 	drivedev := fmt.Sprintf("file=%s,format=raw,if=%s", path, system.DeviceBackends["drive"])
 	cmd := exec.Command("qemu-system-x86_64",
-		"-enable-kvm",
 		"-snapshot",
 		"-m", strconv.Itoa(mem),
 		"-netdev", fwd,
