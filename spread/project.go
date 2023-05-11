@@ -82,6 +82,8 @@ type Backend struct {
 
 	Priority OptionalInt
 	Manual   bool
+
+	Port int
 }
 
 func (b *Backend) String() string { return fmt.Sprintf("backend %q", b.Name) }

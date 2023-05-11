@@ -218,8 +218,12 @@ func qemuCmd(system *System, path string, mem, port int) (*exec.Cmd, error) {
 }
 
 func (p *qemuProvider) Allocate(ctx context.Context, system *System) (Server, error) {
-	// FIXME Find an available port more reliably.
-	port := 59301 + rand.Intn(99)
+	port := p.backend.Port
+	if port == 0 {
+		// FIXME Find an available port more reliably.
+		port = 59301 + rand.Intn(99)
+	}
+
 	mem := 1500
 	if p.backend.Memory > 0 {
 		mem = int(p.backend.Memory / mb)
