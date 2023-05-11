@@ -82,8 +82,6 @@ type Backend struct {
 
 	Priority OptionalInt
 	Manual   bool
-
-	Port int
 }
 
 func (b *Backend) String() string { return fmt.Sprintf("backend %q", b.Name) }
@@ -148,6 +146,8 @@ type System struct {
 	// Currently, only the qemu backend supports this, and only for the
 	// drive and network device drivers.
 	DeviceBackends DeviceBackendsMap `yaml:"device-backends"`
+
+	Port int `yaml:"port"`
 }
 
 func (system *System) String() string { return system.Backend + ":" + system.Name }
