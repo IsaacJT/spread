@@ -221,6 +221,7 @@ func (p *qemuProvider) Allocate(ctx context.Context, system *System) (Server, er
 	port := p.backend.Port
 	if port == 0 {
 		// FIXME Find an available port more reliably.
+		print("Using a random port number for serial and monitor")
 		port = 59301 + rand.Intn(99)
 	}
 
